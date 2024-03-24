@@ -1,8 +1,8 @@
 import os
 import logging
-from flask import Flask, request, jsonify, render_template, Response
+from Flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS, cross_origin
-from signLanguage.utils.main_utils import decodeImage, encodeImageIntoBase64
+from src.utils.main_utils import decodeImage, encodeImageIntoBase64
 import shutil
 
 APP_HOST = "0.0.0.0"
@@ -75,3 +75,4 @@ def predict_live():
 
 if __name__ == "__main__":
     app.run(host=APP_HOST, port=APP_PORT, debug=True)
+
