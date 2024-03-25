@@ -1,6 +1,6 @@
 import os
 import logging
-from Flask import Flask, request, jsonify, render_template, Response
+from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS, cross_origin
 from src.utils.main_utils import decodeImage, encodeImageIntoBase64
 import shutil
@@ -22,8 +22,8 @@ class ClientApp:
 clApp = ClientApp()
 
 def run_detection(weights, source):
-    os.system(f"python yolov5/detect.py --weights {weights} --img 640 --conf 0.5 --source {source}")
-    return "yolov5/runs/detect/exp/inputImage.jpg"
+    os.system(f"python yolov5/detect.py --weights {weights} --img 416 --conf 0.1 --source {source}")
+    return "yolov5/runs/detect/exp/inputImage.jpg" 
 
 @app.route("/")
 def home():

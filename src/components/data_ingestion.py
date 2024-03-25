@@ -1,6 +1,6 @@
 from roboflow import Roboflow 
 from src.logger import logging  
-from src.exception import CustomException 
+from src.exception import SignException
 from dataclasses import dataclass
 import os
 
@@ -26,7 +26,7 @@ class DataIngestion:
 
         except Exception as e:
             logging.error(f'Error in dataset_download: {str(e)}')
-            raise CustomException(f'Dataset download failed: {str(e)}')
+            raise SignException(f'Dataset download failed: {str(e)}')
 
 if __name__ == '__main__':
     ingestion = DataIngestion()
